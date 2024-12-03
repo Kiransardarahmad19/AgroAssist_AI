@@ -7,7 +7,7 @@ As someone from Multan, a city known as the agricultural hub of Pakistan, I have
 This project works on the following UNSDG's : 
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="Images/un6.png" alt="UN SDG" width="300"/>
+    <img src="un6.png" alt="UN SDG" width="300"/>
 </div>
 
 AgroAssist is an AI-powered application designed to support and optimize agricultural practices. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to assist farmers with accurate crop recommendations and timely disease detection for improved productivity and sustainable farming.
