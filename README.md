@@ -1,5 +1,15 @@
 ### AGROASSIST - A Agriculture AI application
 
+## Problem Statement 
+
+As someone from Multan, a city known as the agricultural hub of Pakistan, I have witnessed firsthand the challenges faced by farmers in maintaining healthy crops and achieving optimal yields. Despite the region’s rich agricultural heritage, issues such as crop diseases, inefficient farming practices, and a lack of timely, accurate recommendations continue to hinder productivity and sustainability. These problems not only affect farmers' livelihoods but also pose a threat to food security. Observing these challenges inspired the idea of AgroAssist—an AI-powered application designed to address these issues by providing farmers with precise crop recommendations and early disease detection. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to revolutionize traditional farming practices, enabling sustainable and productive agriculture for the future.
+
+This project works on the following UNSDG's : 
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="Images/un6.png" alt="UN SDG" width="300"/>
+</div>
+
 AgroAssist is an AI-powered application designed to support and optimize agricultural practices. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to assist farmers with accurate crop recommendations and timely disease detection for improved productivity and sustainable farming.
 
 # Features 
@@ -7,6 +17,10 @@ AgroAssist is an AI-powered application designed to support and optimize agricul
 1. Crop Recomendation 
 2. Diease Detection 
 3. Pest Identifiction
+
+# Technology Used 
+AgroAssist leverages Python, PyTorch, TensorFlow, scikit-learn, and deep learning architectures like CNN, ResNet50, and VGG16 for crop recommendation, plant disease recognition, and pest classification.
+
 
 
 ### Crop Recommendation Using Machine Learning
