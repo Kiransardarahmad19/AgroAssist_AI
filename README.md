@@ -2,9 +2,13 @@
 
 ## Problem Statement 
 
-My Home town have witnessed firsthand the challenges faced by farmers in maintaining healthy crops and achieving optimal yields. Despite the region’s rich agricultural heritage, issues such as crop diseases, inefficient farming practices, and a lack of timely, accurate recommendations continue to hinder productivity and sustainability. These problems not only affect farmers' livelihoods but also pose a threat to food security. Observing these challenges inspired the idea of AgroAssist—an AI-powered application designed to address these issues by providing farmers with precise crop recommendations and early disease detection. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to revolutionize traditional farming practices, enabling sustainable and productive agriculture for the future.
+My hometown has witnessed firsthand the challenges faced by farmers in maintaining healthy crops and achieving optimal yields. Despite the region’s rich agricultural heritage, issues such as crop diseases, inefficient farming practices, and a lack of timely, accurate recommendations continue to hinder productivity and sustainability. 
 
-This project works on the following UNSDG's : 
+These problems not only affect farmers' livelihoods but also pose a threat to food security. Observing these challenges inspired the idea of AgroAssist—an AI-powered application designed to address these issues by providing farmers with precise crop recommendations and early disease detection. 
+
+By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to revolutionize traditional farming practices, enabling sustainable and productive agriculture for the future.
+
+This project works on the following UNSDGs: 
 
 <div style="display: flex; justify-content: space-between;">
     <img src="un6.png" alt="UN SDG" width="300"/>
