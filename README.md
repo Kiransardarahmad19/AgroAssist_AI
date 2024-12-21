@@ -110,3 +110,6 @@ Fine-Tuning: After initial training, the last 20 layers of ResNet50 are unfrozen
 
 The trained model achieved high test accuracy of 69% , demonstrating reliable pest identification.
 
+### My Contribution:
+I conceptualized and developed AgroAssist as a Semester Project of Computer Vision.
+
