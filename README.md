@@ -1,6 +1,6 @@
-### AGROASSIST - A Agriculture Related AI Reserach 
+# AGROASSIST - A Agriculture Related AI Reserach 
 
-## Problem Statement 
+### Problem Statement 
 
 AgroAssist is an AI-powered application designed to support and optimize agricultural practices. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to assist farmers with accurate crop recommendations and timely disease detection for improved productivity and sustainable farming.
 
@@ -63,6 +63,8 @@ The model is built on ResNet34, introduces residual learning to overcome vanishi
 
    The model was trained by using variants of above layers mentioned in model building and by varying hyperparameters. The best model was able to achieve 98.42% of test accuracy.
 
+   ![Training Accuracy Graph](train1.png)
+
 4. Testing
 
    The model was tested on total 17572 images of 38 classes.
@@ -76,20 +78,53 @@ The final model being used is Resnet with 98.42% accuracy.
 
 
 # Crop Recommendation Using Machine Learning
-
-Crop recommendation is one of the most important aspects of precision agriculture. Crop recommendations are based on a number of factors. This application will assist farmers in increasing agricultural productivity, preventing soil degradation in cultivated land, reducing chemical use in crop production, and maximizing water resource efficiency.
+Crop recommendation is one of the most important applications of precision agriculture. By analyzing soil nutrients, environmental conditions, and weather patterns, this system predicts the most suitable crop to cultivate for a given piece of land.
+The goal is to assist farmers in increasing agricultural productivity, preventing soil degradation, reducing chemical usage, and optimizing water and fertilizer resources, ultimately leading to smarter, sustainable farming decisions.
 
 # [Dataset]()
 This dataset was build by augmenting datasets of rainfall, climate and fertilizer data available for India.
 
 ### [Attributes information:]()
-* **N** - Ratio of Nitrogen content in soil
-* **P** - Ratio of Phosphorous content in soil
-* **K** - Ratio of Potassium content in soil
-* **Temperature** -  temperature in degree Celsius
-* **Humidity** - relative humidity in %
-* **ph** - ph value of the soil
-* **Rainfall** - rainfall in mm 
+
+
+| Attribute       | Description                             |
+| --------------- | --------------------------------------- |
+| **N**           | Ratio of Nitrogen content in soil       |
+| **P**           | Ratio of Phosphorous content in soil    |
+| **K**           | Ratio of Potassium content in soil      |
+| **Temperature** | Temperature in °C                       |
+| **Humidity**    | Relative humidity (%)                   |
+| **ph**          | Acidity/alkalinity level of soil        |
+| **Rainfall**    | Rainfall in mm                          |
+| **label**       | Target variable — recommended crop name |
+
+
+### Methodology
+#### Data Preprocessing
+
+1. Loaded the dataset Crop_recommendation.csv using Pandas.
+2. Checked for missing values, duplicates, and inconsistent data types.
+3. Identified and removed outliers using the Interquartile Range (IQR) method.
+4. Split the dataset into training (80%) and validation (20%) sets using train_test_split.
+
+#### Feature Scaling
+
+Applied StandardScaler normalization to balance feature ranges for models that are sensitive to data scale (like SVM and Logistic Regression).
+
+#### Model Selection
+
+Several classical ML models were benchmarked:
+1. Logistic Regression
+2. Linear Discriminant Analysis (LDA)
+3. K-Nearest Neighbors (KNN)
+4. Decision Tree (CART)
+5. Naive Bayes
+6. Support Vector Classifier (SVC)
+7. Ensemble Models: Random Forest, AdaBoost, Gradient Boosting, Bagging, Extra Trees
+
+Each model was evaluated using 10-fold cross-validation with accuracy as the metric.
+
+
 
 # [Experiment Results:]()
 * **Data Analysis**
@@ -103,7 +138,22 @@ This dataset was build by augmenting datasets of rainfall, climate and fertilize
     * Training Score: 99.5%
     * Validation Score: 99.3%
 
- 
+| Model               | Accuracy (%) |
+| ------------------- | ------------ |
+| Logistic Regression | 94.8         |
+| Decision Tree       | 97.1         |
+| Random Forest       | 98.4         |
+| **GaussianNB**      | **99.3**     |
+
+
+flowchart LR
+    A[Raw CSV<br/>Crop_recommendation.csv] --> B[Data Cleaning<br/>drop dups, IQR outliers]
+    B --> C[Train/Test Split<br/>80/20 (stratify=y)]
+    C --> D[Scaling<br/>StandardScaler]
+    D --> E[Model Training<br/>GaussianNB]
+    E --> F[Evaluation<br/>accuracy, report, confusion matrix]
+    F --> G[Persist Model<br/>model.pkl]
+
 
 
 ### Pest Classification
