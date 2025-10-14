@@ -1,12 +1,11 @@
-### AGROASSIST - A Agriculture AI application
+### AGROASSIST - A Agriculture Related AI Reserach 
 
 ## Problem Statement 
 
-My hometown has witnessed firsthand the challenges faced by farmers in maintaining healthy crops and achieving optimal yields. Despite the region’s rich agricultural heritage, issues such as crop diseases, inefficient farming practices, and a lack of timely, accurate recommendations continue to hinder productivity and sustainability. 
+AgroAssist is an AI-powered application designed to support and optimize agricultural practices. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to assist farmers with accurate crop recommendations and timely disease detection for improved productivity and sustainable farming.
 
-These problems not only affect farmers' livelihoods but also pose a threat to food security. Observing these challenges inspired the idea of AgroAssist—an AI-powered application designed to address these issues by providing farmers with precise crop recommendations and early disease detection. 
+Despite the region’s rich agricultural heritage, issues such as crop diseases, inefficient farming practices, and a lack of timely, accurate recommendations continue to hinder productivity and sustainability. 
 
-By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to revolutionize traditional farming practices, enabling sustainable and productive agriculture for the future.
 
 This project works on the following UNSDGs: 
 
@@ -14,20 +13,69 @@ This project works on the following UNSDGs:
     <img src="un6.png" alt="UN SDG" width="300"/>
 </div>
 
-AgroAssist is an AI-powered application designed to support and optimize agricultural practices. By leveraging advanced machine learning and deep learning techniques, AgroAssist aims to assist farmers with accurate crop recommendations and timely disease detection for improved productivity and sustainable farming.
 
 # Features 
+
+Agro Assist Consists of three main modules : 
 
 1. Crop Recomendation 
 2. Diease Detection 
 3. Pest Identifiction
 
-# Technology Used 
-AgroAssist leverages Python, PyTorch, TensorFlow, scikit-learn, and deep learning architectures like CNN, ResNet50, and VGG16 for crop recommendation, plant disease recognition, and pest classification.
+# Identification of Plant Diseases 
+
+
+The traditional method of disease detection has been to use manual examination by either farmers or experts, which can be time consuming and costly, proving infeasible for millions of small and medium sized farms around the world. This feature is an approach to the development of plant disease recognition model, based on leaf image classification, by the use of deep convolutional networks. The developed model is able to recognize 38 different types of plant diseases out of of 14 different plants with the ability to distinguish plant leaves from their surroundings.
+
+This process for building a model which can detect the disease assocaited with the leaf image. The key points to be followed are:
+
+1. Data gathering
+
+   The dataset taken was **"New Plant Diseases Dataset"**. It can be downloaded through the link "https://www.kaggle.com/vipoooool/new-plant-diseases-dataset". It is an Image dataset containing images of different healthy and unhealthy crop leaves.
+
+   ![Batch Dataset Photo](imagebatch.png)
+
+2. Model building
+
+   - I have used pytorch for building the model.
+   - I used three models:-
+     1. The CNN model architecture consists of CNN Layer, Max Pooling, Flatten a Linear Layers.
+     2. Using Transfer learning VGG16 Architecture.
+     3. Using Transfer learning resnet34 Architecture.
+
+The architectures of all three are discussed below: 
+
+![Architecture of CNN](cnn_architecture.jpg)
+
+This model is a deep convolutional neural network built entirely from scratch to classify leaf images into 38 plant disease categories. It consists of five convolutional blocks, each followed by ReLU activations and max pooling layers to progressively reduce spatial dimensions while increasing feature depth. The network begins with small filters (3→32→64) and expands up to 1024 channels, capturing both low-level and high-level image features. After feature extraction, it applies a global average pooling layer and three fully connected layers (1024→512→256→38) to produce the final class probabilities. This custom model learns all features from the dataset itself, providing high flexibility but requiring more training data and time to generalize effectively.
+
+![Architecture of VGG16](vgg16_architecture.jpg)
+
+The model based on VGG16, leverages transfer learning by reusing a pre-trained ImageNet model as a powerful feature extractor. The convolutional layers of VGG16 capture hierarchical texture and color information, while the final fully connected layers are modified to classify 38 plant diseases instead of 1000 ImageNet classes. This structure includes five convolutional blocks with 13 convolution layers in total, followed by three dense layers (4096→4096→38). By fine-tuning only the final layers, the model combines the stability of pre-learned features with the specificity of plant disease patterns, making it effective for medium-sized datasets.
+
+![Architecture of Resnet34](resnet_architecture.jpg)
+
+The model is built on ResNet34, introduces residual learning to overcome vanishing gradient issues and improve training efficiency. The architecture begins with a 7×7 convolution and max pooling, followed by four residual stages (3, 4, 6, and 3 blocks respectively) with skip connections that allow the network to learn identity mappings. These connections enable deeper and more stable learning compared to traditional CNNs. The model ends with a global average pooling layer and a single fully connected layer (512→38) that outputs disease classifications. Thanks to its pre-trained ImageNet weights and residual architecture, this model offers high accuracy, faster convergence, and better generalization for plant disease detection.
 
 
 
-### Crop Recommendation Using Machine Learning
+3. Training
+
+   The model was trained by using variants of above layers mentioned in model building and by varying hyperparameters. The best model was able to achieve 98.42% of test accuracy.
+
+4. Testing
+
+   The model was tested on total 17572 images of 38 classes.
+
+5. Result 
+
+The final model being used is Resnet with 98.42% accuracy. 
+
+![Apple Scab Diease Detected](test1_pdc.png)
+
+
+
+# Crop Recommendation Using Machine Learning
 
 Crop recommendation is one of the most important aspects of precision agriculture. Crop recommendations are based on a number of factors. This application will assist farmers in increasing agricultural productivity, preventing soil degradation in cultivated land, reducing chemical use in crop production, and maximizing water resource efficiency.
 
@@ -56,33 +104,6 @@ This dataset was build by augmenting datasets of rainfall, climate and fertilize
     * Validation Score: 99.3%
 
  
-### Recognition of Plant Diseases 
-
-
-The traditional method of disease detection has been to use manual examination by either farmers or experts, which
-can be time consuming and costly, proving infeasible for millions of small and medium sized farms around the world. This feature is an approach to the development of plant disease recognition model, based on leaf image classification, by the use of deep convolutional networks. The developed model is able to recognize 38 different types of plant diseases out of of 14 different plants with the ability to distinguish plant leaves from their surroundings.
-
-This process for building a model which can detect the disease assocaited with the leaf image. The key points to be followed are:
-
-1. Data gathering
-
-   The dataset taken was **"New Plant Diseases Dataset"**. It can be downloaded through the link "https://www.kaggle.com/vipoooool/new-plant-diseases-dataset". It is an Image dataset containing images of different healthy and unhealthy crop leaves.
-
-2. Model building
-
-   - I have used pytorch for building the model.
-   - I used three models:-
-     1. The CNN model architecture consists of CNN Layer, Max Pooling, Flatten a Linear Layers.
-     2. Using Transfer learning VGG16 Architecture.
-     3. Using Transfer learning resnet34 Architecture.
-
-3. Training
-
-   The model was trained by using variants of above layers mentioned in model building and by varying hyperparameters. The best model was able to achieve 98.42% of test accuracy.
-
-4. Testing
-
-   The model was tested on total 17572 images of 38 classes.
 
 
 ### Pest Classification
@@ -112,4 +133,7 @@ The trained model achieved high test accuracy of 69% , demonstrating reliable pe
 
 ### My Contribution:
 I conceptualized and developed AgroAssist as a Semester Project of Computer Vision.
+
+# Technology Used 
+AgroAssist leverages Python, PyTorch, TensorFlow, scikit-learn, and deep learning architectures like CNN, ResNet50, and VGG16 for crop recommendation, plant disease recognition, and pest classification.
 
