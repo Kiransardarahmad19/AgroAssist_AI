@@ -123,6 +123,10 @@ Several classical ML models were benchmarked:
 
 Each model was evaluated using 10-fold cross-validation with accuracy as the metric.
 
+### Flow
+
+![Crop Recomendations](croprecomendation.jpg)
+
 
 
 ### Experiment Results
@@ -143,36 +147,6 @@ Each model was evaluated using 10-fold cross-validation with accuracy as the met
 | Decision Tree       | 97.1         |
 | Random Forest       | 98.4         |
 | **GaussianNB**      | **99.3**     |
-
-
-graph TD
-    subgraph Baselines
-      LR[Logistic Regression]
-      LDA[LDA]
-      KNN[KNN]
-      DT[Decision Tree]
-      SVM[SVC]
-      NB[GaussianNB]
-    end
-    subgraph Ensembles
-      RF[Random Forest]
-      AB[AdaBoost]
-      GB[Gradient Boosting]
-      ET[Extra Trees]
-      BAG[Bagging]
-    end
-    LR --> Eval((10-fold CV))
-    LDA --> Eval
-    KNN --> Eval
-    DT --> Eval
-    SVM --> Eval
-    NB --> Eval
-    RF --> Eval
-    AB --> Eval
-    GB --> Eval
-    ET --> Eval
-    BAG --> Eval
-    Eval --> Winner[Select Best<br/>GaussianNB]
 
 
 
