@@ -81,11 +81,10 @@ The final model being used is Resnet with 98.42% accuracy.
 Crop recommendation is one of the most important applications of precision agriculture. By analyzing soil nutrients, environmental conditions, and weather patterns, this system predicts the most suitable crop to cultivate for a given piece of land.
 The goal is to assist farmers in increasing agricultural productivity, preventing soil degradation, reducing chemical usage, and optimizing water and fertilizer resources, ultimately leading to smarter, sustainable farming decisions.
 
-# [Dataset]()
+## Dataset
 This dataset was build by augmenting datasets of rainfall, climate and fertilizer data available for India.
 
-### [Attributes information:]()
-
+### Attributes information
 
 | Attribute       | Description                             |
 | --------------- | --------------------------------------- |
@@ -126,7 +125,7 @@ Each model was evaluated using 10-fold cross-validation with accuracy as the met
 
 
 
-# [Experiment Results:]()
+### Experiment Results
 * **Data Analysis**
     * All columns contain outliers except for N.
  * **Performance Evaluation**
@@ -146,13 +145,35 @@ Each model was evaluated using 10-fold cross-validation with accuracy as the met
 | **GaussianNB**      | **99.3**     |
 
 
-flowchart LR
-    A[Raw CSV<br/>Crop_recommendation.csv] --> B[Data Cleaning<br/>drop dups, IQR outliers]
-    B --> C[Train/Test Split<br/>80/20 (stratify=y)]
-    C --> D[Scaling<br/>StandardScaler]
-    D --> E[Model Training<br/>GaussianNB]
-    E --> F[Evaluation<br/>accuracy, report, confusion matrix]
-    F --> G[Persist Model<br/>model.pkl]
+graph TD
+    subgraph Baselines
+      LR[Logistic Regression]
+      LDA[LDA]
+      KNN[KNN]
+      DT[Decision Tree]
+      SVM[SVC]
+      NB[GaussianNB]
+    end
+    subgraph Ensembles
+      RF[Random Forest]
+      AB[AdaBoost]
+      GB[Gradient Boosting]
+      ET[Extra Trees]
+      BAG[Bagging]
+    end
+    LR --> Eval((10-fold CV))
+    LDA --> Eval
+    KNN --> Eval
+    DT --> Eval
+    SVM --> Eval
+    NB --> Eval
+    RF --> Eval
+    AB --> Eval
+    GB --> Eval
+    ET --> Eval
+    BAG --> Eval
+    Eval --> Winner[Select Best<br/>GaussianNB]
+
 
 
 
