@@ -191,12 +191,18 @@ Fine-Tuning: After initial training, the last 20 layers of ResNet50 are unfrozen
 
 ### Results:
 
-The trained model achieved high test accuracy of 69% , demonstrating reliable pest identification.
+The trained models demonstrated strong performance across multiple agricultural tasks.
+Specifically, the pest identification model achieved a test accuracy of 69%, indicating a solid ability to classify and recognize crop pests under varying environmental conditions.
+This result validates the effectiveness of the proposed deep learning pipeline for real-world agricultural decision support.
 
 
-# My Contribution:
-I conceptualized and developed AgroAssist as a Semester Project of Computer Vision.
 
 # Technology Used 
-AgroAssist leverages Python, PyTorch, TensorFlow, scikit-learn, and deep learning architectures like CNN, ResNet50, and VGG16 for crop recommendation, plant disease recognition, and pest classification.
+
+1. AgroAssist is built using a robust AI and data science stack that integrates:
+2. Programming & Frameworks: Python, FastAPI
+3. Machine Learning Libraries: scikit-learn, TensorFlow, and PyTorch
+4. Deep Learning Architectures: Convolutional Neural Networks (CNNs), ResNet50, and VGG16
+5. Applications: Crop recommendation, plant disease detection, and pest classification
+6. Together, these technologies enable end-to-end agricultural intelligence, from data ingestion to predictive insights.
 
