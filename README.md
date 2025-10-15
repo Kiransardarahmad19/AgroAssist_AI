@@ -13,6 +13,22 @@ This project works on the following UNSDGs:
     <img src="un6.png" alt="UN SDG" width="300"/>
 </div>
 
+# High Level System Architecture 
+
+This project integrates two machine learning pipelines, one for Crop Recommendation and another for Plant Disease Detection, into a unified FastAPI-based inference API. The system is designed to make ML model predictions accessible via simple REST endpoints, enabling rapid testing with tools like Postman or Swagger UI.
+
+![Full System Diagram](fullsystem.jpg)
+
+
+| Component                   | Description                                                                                                                   |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend / Client**       | Postman or Swagger UI (`/docs`) used to send and test API requests.                                                           |
+| **Backend**                 | FastAPI application (`main.py`) serving ML predictions through REST endpoints.                                                |
+| **Machine Learning Models** | `model.pkl` – Crop Recommendation (Scikit-Learn)<br> `resnet34_finetuned.pth` – Plant Disease Classification (PyTorch) |
+| **Compute Device**          | Automatically detects `CUDA` GPU if available; defaults to CPU.                                                               |
+| **Logging & Monitoring**    | Tracks request payloads, validation errors, inference time, and top-K outputs.                                                |
+
+
 
 # Features 
 
@@ -20,7 +36,8 @@ Agro Assist Consists of three main modules :
 
 1. Crop Recomendation 
 2. Diease Detection 
-3. Pest Identifiction
+3. Pest Identifiction ( Research
+)
 
 # Identification of Plant Diseases 
 
@@ -151,15 +168,15 @@ Each model was evaluated using 10-fold cross-validation with accuracy as the met
 
 
 
-### Pest Classification
+# Pest Classification
 
 AgroAssist’s Pest Classification feature provides a deep learning-based approach to identifying common agricultural pests, helping farmers implement effective pest control measures. By accurately classifying pest species from images, this feature enables timely intervention, ultimately reducing crop damage and minimizing pesticide use.
 
-# Data Preparation:
+### Data Preparation:
 
 Images are preprocessed and augmented using TensorFlow's ImageDataGenerator with an 80/20 split for training and validation.
 
-# Model Architecture:
+### Model Architecture:
 
 Base Model: Utilizes ResNet50, a pre-trained deep convolutional network, as the foundation for feature extraction.
 Custom Layers: Adds custom layers for improved classification accuracy, including:
@@ -167,16 +184,17 @@ Global Average Pooling Layer
 Dense layer with 1024 units and ReLU activation
 Output layer with softmax activation to classify pest species.
 
-# Training:
+### Training:
 
 The model is initially trained with the base ResNet50 layers frozen, using a learning rate of 0.001.
 Fine-Tuning: After initial training, the last 20 layers of ResNet50 are unfrozen, and the model is retrained with a reduced learning rate of 0.00001 to further enhance accuracy.
 
-# Results:
+### Results:
 
 The trained model achieved high test accuracy of 69% , demonstrating reliable pest identification.
 
-### My Contribution:
+
+# My Contribution:
 I conceptualized and developed AgroAssist as a Semester Project of Computer Vision.
 
 # Technology Used 
